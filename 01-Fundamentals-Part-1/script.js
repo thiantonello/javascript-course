@@ -59,3 +59,48 @@ console.log(language)
 //  var and let variables can be redeclared and updated
 
 */
+
+//----------------------------------------------
+//Basic Operators
+let population = 220_000_000
+
+//  Math operators
+console.log(population / 2)
+console.log(population + 1)
+console.log(population > 6)
+console.log(population < 33)
+
+const current_year = new Date().getFullYear()
+console.log('The current year is', current_year)
+
+const ageThiago = current_year - 1996
+const ageJonas = current_year - 1991
+console.log(`Thiago has ${ageThiago} and Jonas has ${ageJonas} years old.`)
+
+console.log(3 ** 2) // 3 to the power of 2 = 9
+
+firstName = 'Thiago'
+lastName = 'Antonello Vargas'
+fullName = firstName + ' ' + lastName
+
+console.log('My name is' + ' ' + firstName + ' ' + lastName)
+//  same as:
+//  console.log(`My name is ${firstName} ${lastName}`)
+//  console.log('My name is', firstName, lastName)
+//  console.log(`My name is ${fullName}`)
+
+console.log(`I'm ${ageThiago} years old`)
+
+//  Assignment operators
+let x = 10 + 5 // 15
+x += 10 // x = x + 10 = 25     only works because we used a let variable
+x *= 4 // x = x * 4 = 100
+x++ // x = x + 1 = 101
+x-- // x = x - 1 = 100
+x /= 2 // x = x / 2 = 50
+console.log(x)
+
+//  Comparison operators
+console.log(ageThiago > ageJonas) // false
+console.log(ageThiago >= 18) // true
+console.log(ageThiago <= 18) // false
