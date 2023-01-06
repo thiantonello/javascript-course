@@ -6,6 +6,7 @@ console.log(40 + 8 + 23 - 10)
 
 console.log(js)
 
+
 //----------------------------------------------
 //Values and Variables
 const country = 'Brasil'
@@ -15,6 +16,7 @@ let population = 220_000_000
 console.log(country)
 console.log(continent)
 console.log(population)
+
 
 //----------------------------------------------
 //Data Types
@@ -46,6 +48,7 @@ console.log('the type of the data stored in language is', typeof language)
 //    BigInt      (larger integers than the Number type can hold)
 //
 
+
 //----------------------------------------------
 //let, const and var
 language = 'Portuguese'
@@ -58,8 +61,8 @@ console.log(language)
 //  var declarations are global or function-scoped while let and const are block-scoped
 //  var and let variables can be redeclared and updated
 
-*/
 
+*/
 //----------------------------------------------
 //Basic Operators
 let population = 220_000_000
@@ -104,3 +107,18 @@ console.log(x)
 console.log(ageThiago > ageJonas) // false
 console.log(ageThiago >= 18) // true
 console.log(ageThiago <= 18) // false
+
+//  Operator precedence
+//  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+//  Math operators are higher precedence than comparison operators and execute from left to right, except for the exponentiation operator (**) which has the highest precedence and executes from right to left
+
+//  assignment operators have the lowest precedence and execute from right to left
+
+let y, z
+y = z = 25 - 10 - 5 // z = 10, y = 10
+console.log(y, z)
+
+const averageAge = (ageThiago + ageJonas) / 2
+// without parenthesis, the code divide ageJonas by 2 and then add the result to ageThiago
+console.log(averageAge)
