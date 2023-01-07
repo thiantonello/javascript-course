@@ -122,7 +122,7 @@ const averageAge = (ageThiago + ageJonas) / 2
 // without parenthesis, the code divide ageJonas by 2 and then add the result to ageThiago
 console.log(averageAge)
 
-*/
+
 //----------------------------------------------
 //Coding Challenge #1
 //  Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / height ** 2 = mass / (height * height) (mass in kg and height in meter)
@@ -156,3 +156,49 @@ console.log(johnBMI.toFixed(2))
 
 const markHigherBMI = markBMI > johnBMI
 console.log('Is Mark higher than John?', markHigherBMI)
+
+*/
+//----------------------------------------------
+//Strings and Template Literals
+
+function calculateAge(birthDate, otherDate) {
+  birthDate = new Date(birthDate)
+  otherDate = new Date(otherDate)
+
+  var years = otherDate.getFullYear() - birthDate.getFullYear()
+
+  if (
+    otherDate.getMonth() < birthDate.getMonth() ||
+    (otherDate.getMonth() == birthDate.getMonth() &&
+      otherDate.getDate() < birthDate.getDate())
+  ) {
+    years--
+  }
+
+  return years
+}
+
+const firstName = 'Thiago'
+const job = 'software developer'
+const birthDate = '1996-03-28'
+const currentYear = new Date()
+const age = calculateAge(birthDate, currentYear)
+
+const phrase = `My name is ${firstName}. I'm a ${job} and I was born in ${
+  birthDate.split('-')[0]
+}. I'm currently ${age} years old.
+`
+console.log(phrase)
+console.log(phrase.replace(/\./g, '\n'))
+
+console.log(
+  'String \n\
+with \n\
+multiple \n\
+lines'
+)
+//  same as bellow
+console.log(`String
+with
+multiple
+lines`)
