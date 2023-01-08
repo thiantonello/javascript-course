@@ -235,7 +235,7 @@ if (birthYear <= 2000) {
 
 console.log(century)
 
-*/
+
 //----------------------------------------------
 //Coding Challenge #2
 
@@ -273,3 +273,30 @@ if (higherBMI) {
     )}) is higher than Mark's (${markBMI.toFixed(1)})!`
   )
 }
+
+*/
+//----------------------------------------------
+//Type conversion and coercion
+
+//  Type conversion
+//  is when we manually convert from one type to another
+const inputYear = '1996'
+console.log(Number(inputYear), inputYear)
+console.log(typeof Number(inputYear), typeof inputYear)
+console.log(Number(inputYear) + 18, inputYear + 18)
+
+console.log(Number('Thiago'))
+//  whenever we try to convert a string to a number and the string is not a number, we get NaN
+//  NaN = Not a Number
+
+//  Type coercion
+//  is when JS automatically converts types for us
+console.log('I am ' + 26 + ' years old')
+//  whenever there is the plus operator and a string and a number, JS converts the number to a string
+
+console.log('23' - '10' - 3)
+//  the minus operator converts the strings to a number
+
+let n = '1' + 1 // '11'
+n = n - 1 // the minus operator converts the strings to a number
+console.log(n)
