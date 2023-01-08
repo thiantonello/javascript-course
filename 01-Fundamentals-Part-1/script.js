@@ -274,7 +274,7 @@ if (higherBMI) {
   )
 }
 
-*/
+
 //----------------------------------------------
 //Type conversion and coercion
 
@@ -300,3 +300,50 @@ console.log('23' - '10' - 3)
 let n = '1' + 1 // '11'
 n = n - 1 // the minus operator converts the strings to a number
 console.log(n)
+
+*/
+//----------------------------------------------
+//Truthy and Falsy Values
+
+//  JS has only 5 falsy values:
+//    0,
+//    '',
+//    undefined,
+//    null,
+//    NaN
+
+//  that means they will become false when converted to a boolean
+console.log(Boolean(0))
+console.log(Boolean(''))
+console.log(Boolean(undefined))
+console.log(Boolean(null))
+console.log(Boolean(NaN))
+
+//  all other values are truthy
+
+// in practice, the conversion to boolean is always implicit, in other words, always type coercion. It happens when we use logical operators or in a logical context like an if statement
+
+const money = 0 // 0 is falsy
+if (money) {
+  console.log("Don't spend it all ;)")
+} else {
+  //  else is executed because 0 is falsy
+  console.log('You should get a job!')
+}
+
+let car
+if (car) {
+  console.log('You have a car')
+} else {
+  //  else is executed because car is undefined (falsy)
+  console.log("You don't have a car")
+}
+
+//  we can find a problem when the value is 0, because 0 is falsy, but it is a valid value
+let height = 0
+if (height) {
+  console.log('Yay! Height is defined')
+} else {
+  //  else is executed because height is 0 (falsy)
+  console.log('Height is undefined')
+}
