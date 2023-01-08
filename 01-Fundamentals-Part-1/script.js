@@ -157,7 +157,7 @@ console.log(johnBMI.toFixed(2))
 const markHigherBMI = markBMI > johnBMI
 console.log('Is Mark higher than John?', markHigherBMI)
 
-*/
+
 //----------------------------------------------
 //Strings and Template Literals
 
@@ -202,3 +202,35 @@ console.log(`String
 with
 multiple
 lines`)
+
+*/
+//----------------------------------------------
+//Taking Decisions: if / else Statements
+
+const age = 26
+const person = 'Thiago'
+
+function ableToDrive(age) {
+  if (age >= 18) {
+    return 'Yes'
+  } else {
+    return `No, ${person} is too young to drive`
+  }
+}
+
+console.log(`Is ${person} old enough to drive? ${ableToDrive(age)}.`)
+
+const birthYear = 1996
+
+//  if we want to use a variable outside of the if statement, we need to declare it outside of the if statement
+let century
+
+if (birthYear <= 2000) {
+  century = 20
+} else {
+  century = 21
+}
+
+//  a variable that is declared inside of an if statement is only available inside of the if statement
+
+console.log(century)
