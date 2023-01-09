@@ -301,7 +301,7 @@ let n = '1' + 1 // '11'
 n = n - 1 // the minus operator converts the strings to a number
 console.log(n)
 
-*/
+
 //----------------------------------------------
 //Truthy and Falsy Values
 
@@ -346,4 +346,34 @@ if (height) {
 } else {
   //  else is executed because height is 0 (falsy)
   console.log('Height is undefined')
+}
+
+*/
+//----------------------------------------------
+//Equality Operators: == vs. ===
+
+const age = '18'
+
+//  Strict Equality Operator (===) does not do type coercion
+console.log(age === 18) // false because 18 is a number and age is a string
+
+//  Loose Equality Operator (==) does type coercion
+console.log(age == 18) // true because 18 is converted to a string and then compared to age
+
+const favorite = Number(prompt("What's your favorite number?"))
+//  the prompt function always returns a string
+//  we can convert the string to a number using the Number function
+console.log(favorite)
+console.log(typeof favorite)
+
+if (favorite === 28) {
+  console.log('Cool! 28 is an amazing number!')
+} else if (favorite === 5) {
+  console.log('5 is also a cool number')
+} else {
+  console.log('Number is not 28 or 5')
+}
+
+if (favorite !== 28) {
+  console.log('Why not 28?')
 }
