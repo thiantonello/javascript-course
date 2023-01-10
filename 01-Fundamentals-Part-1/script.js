@@ -348,7 +348,7 @@ if (height) {
   console.log('Height is undefined')
 }
 
-*/
+
 //----------------------------------------------
 //Equality Operators: == vs. ===
 
@@ -377,3 +377,33 @@ if (favorite === 28) {
 if (favorite !== 28) {
   console.log('Why not 28?')
 }
+
+*/
+//----------------------------------------------
+//Logical Operators
+
+const hasDriversLicense = true // A
+const hasGoodVision = true // B
+
+//  AND operator (&&)  //  both values need to be true
+console.log(hasDriversLicense && hasGoodVision)
+
+if (hasDriversLicense && hasGoodVision) {
+  console.log('Sarah is able to drive')
+}
+
+//  OR operator (||)  //  at least one of the values needs to be true
+console.log(hasDriversLicense || hasGoodVision)
+
+//  NOT operator (!)  //  inverts the boolean value
+console.log(!hasDriversLicense)
+
+const isTired = false // C
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log('Sarah is able to drive')
+} else {
+  console.log('Someone else should drive...')
+}
+
+//  the NOT operator has precedence over the AND and OR operator
