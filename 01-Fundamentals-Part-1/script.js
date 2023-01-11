@@ -203,7 +203,7 @@ with
 multiple
 lines`)
 
-*/
+
 //----------------------------------------------
 //Taking Decisions: if / else Statements
 
@@ -250,7 +250,7 @@ if (country.population > 33) {
   console.log(`${country.name}'s population is below average`)
 }
 
-/*
+
 //----------------------------------------------
 //Coding Challenge #2
 
@@ -289,7 +289,7 @@ if (higherBMI) {
   )
 }
 
-
+*/
 //----------------------------------------------
 //Type conversion and coercion
 
@@ -316,7 +316,16 @@ let n = '1' + 1 // '11'
 n = n - 1 // the minus operator converts the strings to a number
 console.log(n)
 
+console.log('')
 
+//  examples of type coercion
+console.log('9' - '5') // 4, because the minus operator converts the strings to a number
+console.log('19' - '13' + '17') // '617', because the minus operator converts the strings to a number then the plus operator converts the number to a string (due to the presence of a string in the expression)
+console.log('19' - '13' + 17) // 23, because the minus operator converts the strings to a number then adds 17
+console.log('123' < 57) // false, because the less than operator converts the strings to a number
+console.log(5 + 6 + '4' + 9 - 4 - 2) // 1143, because the minus operator converts the strings to a number
+
+/*
 //----------------------------------------------
 //Truthy and Falsy Values
 
