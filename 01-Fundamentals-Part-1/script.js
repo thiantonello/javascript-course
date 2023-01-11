@@ -203,7 +203,7 @@ with
 multiple
 lines`)
 
-
+*/
 //----------------------------------------------
 //Taking Decisions: if / else Statements
 
@@ -235,7 +235,22 @@ if (birthYear <= 2000) {
 
 console.log(century)
 
+const country = {
+  name: 'Brazil',
+  capital: 'Brasília',
+  population: 214,
+  area: 8515767,
+}
+console.log(country.capital)
+console.log(country['population'])
 
+if (country.population > 33) {
+  console.log(`${country.name}'s population is above average`)
+} else {
+  console.log(`${country.name}'s population is below average`)
+}
+
+/*
 //----------------------------------------------
 //Coding Challenge #2
 
@@ -567,7 +582,7 @@ if (age >= 18) {
 //  ternary operator is an expression, so we can use it inside template literals
 console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`)
 
-*/
+
 //----------------------------------------------
 //Coding Challenge #4
 
@@ -590,3 +605,5 @@ console.log(
     2
   )}, and the total value $${billTotal.toFixed(2)}`
 )
+
+*/
