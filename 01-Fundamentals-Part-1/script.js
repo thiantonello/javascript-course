@@ -465,9 +465,9 @@ if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
   console.log('No one wins the trophy')
 }
 
-*/
+
 //----------------------------------------------
-//The switch Statement
+//The Switch Statement
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -516,3 +516,25 @@ switch (day) {
   default:
     console.log('Not a valid day')
 }
+
+*/
+//----------------------------------------------
+//Statements and Expressions
+
+//  expressions are like words that produce a value
+3 + 4 //  expression
+1991 //  expression
+true && false && !false //  expression
+
+//  statements are instructions that perform actions
+if (23 > 10) {
+  const str = '23 is bigger' //  statement
+}
+//  statements are like full sentences that perform an action (if/else, loops, functions, etc.)
+
+//  javascript is a language that uses expressions to produce values and statements to perform actions
+
+//  javascript expects statements and expressions in different places. E.g.
+
+//  template literals expect expressions. So we can only use expressions inside template literals but not statements. E.g.
+console.log(`I'm ${2023 - 1996} years old`) // expression
