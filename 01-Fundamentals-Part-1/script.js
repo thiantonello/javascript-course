@@ -428,3 +428,39 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 //  Test data Bonus 1:  Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
 
 //  Test data Bonus 2:  Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
+
+const dolphinsData1 = [96, 108, 89]
+const koalasData1 = [88, 91, 110]
+
+const dolphinsData2 = [97, 112, 101]
+const koalasData2 = [109, 95, 123]
+
+const dolphinsData3 = [97, 112, 101]
+const koalasData3 = [109, 95, 106]
+
+function calcAverage(scores) {
+  let sum = 0
+  for (let i = 0; i < scores.length; i++) {
+    sum += scores[i]
+  }
+  return sum / scores.length
+}
+
+const dolphinsAverage = calcAverage(dolphinsData1).toFixed(2)
+const koalasAverage = calcAverage(koalasData1).toFixed(2)
+
+if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
+  console.log(
+    `Dolphins wins the trophy! ${dolphinsAverage} vs. ${koalasAverage}`
+  )
+} else if (koalasAverage > dolphinsAverage && koalasAverage >= 100) {
+  console.log(`Koalas wins the trophy! ${koalasAverage} vs. ${dolphinsAverage}`)
+} else if (
+  dolphinsAverage === koalasAverage &&
+  dolphinsAverage >= 100 &&
+  koalasAverage >= 100
+) {
+  console.log(`It's a draw! ${dolphinsAverage} vs. ${koalasAverage}`)
+} else {
+  console.log('No one wins the trophy')
+}
