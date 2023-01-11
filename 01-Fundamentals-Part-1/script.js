@@ -408,7 +408,7 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 
 //  the NOT operator has precedence over the AND and OR operator
 
-*/
+
 //----------------------------------------------
 //Coding Challenge #3
 
@@ -463,4 +463,56 @@ if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
   console.log(`It's a draw! ${dolphinsAverage} vs. ${koalasAverage}`)
 } else {
   console.log('No one wins the trophy')
+}
+
+*/
+//----------------------------------------------
+//The switch Statement
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+const day = capitalizeFirstLetter(prompt('Enter a day').trim().toLowerCase())
+
+//  switch is a keyword that takes an expression as an argument and does a strict comparison with the cases
+switch (day) {
+  //  case is a keyword that takes a value as an argument
+  case 'Monday': // day === 'Monday'
+    console.log(
+      `The name of Monday is derived from Old English Mōnandæg and Middle English Monenday, originally a translation of Latin dies lunae "day of the Moon"`
+    )
+    break //  break is a keyword that stops the execution of the switch statement
+  case 'Tuesday':
+    console.log(
+      `Old English Tīwesdæg ‘day of Tīw’, a Germanic god of war and the sky; translation of Latin dies Marti ‘day of Mars’, the god Tīw being equated with the Roman god Mars`
+    )
+    break
+  case 'Wednesday':
+    console.log(
+      `Old English Wōdnesdæg ‘day of Odin’, named after the Germanic god Odin or Woden, the supreme god; translation of late Latin Mercurii dies, Odin being equated with the Roman god Mercury`
+    )
+    break
+  case 'Thursday':
+    console.log(
+      `Old English Thu(n)resdæg ‘day of thunder’, named after Thunor or Thor, the Germanic god of thunder; translation of late Latin Jovis dies ‘day of Jupiter’, Thor being equated with the Roman god Jupiter`
+    )
+    break
+  case 'Friday':
+    console.log(
+      `Old English Frīgedæg ‘day of Frigga’, named after the Germanic goddess Frigga, wife of the supreme god Odin and goddess of married love; translation of late Latin Veneris dies ‘day of Venus’, Frigga being equated with the Roman goddess of love, Venus`
+    )
+    break
+  case 'Saturday':
+    console.log(
+      `Old English Sætern(es)dæg, translation of Latin Saturni dies ‘day of Saturn’, the ancient Roman god of agriculture`
+    )
+    break
+  case 'Sunday':
+    console.log(
+      `The name "Sunday", the day of the Sun, is derived from Hellenistic astrology, where the seven planets, known in English as Saturn, Jupiter, Mars, the Sun, Venus, Mercury and the Moon, each had an hour of the day assigned to them, and the planet which was regent during the first hour of any day of the week gave its name to that day. During the 1st and 2nd century, the week of seven days was introduced into Rome from Egypt, and the Roman names of the planets were given to each successive day.`
+    )
+    break
+  default:
+    console.log('Not a valid day')
 }
