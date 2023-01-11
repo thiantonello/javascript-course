@@ -539,7 +539,7 @@ if (23 > 10) {
 //  template literals expect expressions. So we can only use expressions inside template literals but not statements. E.g.
 console.log(`I'm ${2023 - 1996} years old`) // expression
 
-*/
+
 //----------------------------------------------
 //The Conditional (Ternary) Operator
 
@@ -566,3 +566,27 @@ if (age >= 18) {
 
 //  ternary operator is an expression, so we can use it inside template literals
 console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`)
+
+*/
+//----------------------------------------------
+//Coding Challenge #4
+
+//  Steven wants to build a very simple tip calculator for whenever he goes eating in a restaurant. In his country, it's usual to tip 15% if the bill value is  between 50 and 300. If the value is different, the tip is 20%
+
+//  Tasks:
+//  1. Your task is to calculate the tip, depending on the bill value. Create a variable called 'tip' for this. It's not allowed to use an if/else statement.
+//  2. Print a string to the console containing the bill value, the tip, and the final (bill + tip). Example: 'The bill was 275, the tip was 41.25, and the total value 316.25'
+
+//  Test data: Test bill values 275, 40 and 430
+
+const bill = 430
+
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2
+
+const billTotal = bill + tip
+
+console.log(
+  `The bill was $${bill.toFixed(2)}, the tip was $${tip.toFixed(
+    2
+  )}, and the total value $${billTotal.toFixed(2)}`
+)
