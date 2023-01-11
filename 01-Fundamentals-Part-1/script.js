@@ -517,7 +517,7 @@ switch (day) {
     console.log('Not a valid day')
 }
 
-*/
+
 //----------------------------------------------
 //Statements and Expressions
 
@@ -538,3 +538,31 @@ if (23 > 10) {
 
 //  template literals expect expressions. So we can only use expressions inside template literals but not statements. E.g.
 console.log(`I'm ${2023 - 1996} years old`) // expression
+
+*/
+//----------------------------------------------
+//The Conditional (Ternary) Operator
+
+const age = 26
+
+//  ternary operator is a shortcut for if/else statements
+age >= 18
+  ? console.log('I like to drink wine 🍷 because I am')
+  : console.log('I like to drink water 💧 because I am')
+
+age >= 18 ? console.log('of legal age') : console.log('underage')
+
+const drink = age >= 18 ? 'wine 🍷' : 'water 💧'
+
+console.log('You are allowed to drink', drink)
+
+//  same as above but with if/else statement
+let drink2
+if (age >= 18) {
+  drink2 = 'wine 🍷'
+} else {
+  drink2 = 'water 💧'
+}
+
+//  ternary operator is an expression, so we can use it inside template literals
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`)
