@@ -289,7 +289,7 @@ if (higherBMI) {
   )
 }
 
-*/
+
 //----------------------------------------------
 //Type conversion and coercion
 
@@ -325,7 +325,7 @@ console.log('19' - '13' + 17) // 23, because the minus operator converts the str
 console.log('123' < 57) // false, because the less than operator converts the strings to a number
 console.log(5 + 6 + '4' + 9 - 4 - 2) // 1143, because the minus operator converts the strings to a number
 
-/*
+
 //----------------------------------------------
 //Truthy and Falsy Values
 
@@ -372,7 +372,7 @@ if (height) {
   console.log('Height is undefined')
 }
 
-
+*/
 //----------------------------------------------
 //Equality Operators: == vs. ===
 
@@ -402,7 +402,23 @@ if (favorite !== 28) {
   console.log('Why not 28?')
 }
 
+console.log(' ')
 
+const numNeighbors = Number(
+  prompt(`How many neighbor countries does your country have?`)
+)
+
+// const numNeighbors = 1
+
+if (numNeighbors === 1) {
+  console.log('Only 1 border!')
+} else if (numNeighbors > 1) {
+  console.log('More than 1 border')
+} else {
+  console.log('No borders')
+}
+
+/*
 //----------------------------------------------
 //Logical Operators
 
