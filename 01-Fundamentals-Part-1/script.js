@@ -532,7 +532,7 @@ if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
   console.log('No one wins the trophy')
 }
 
-*/
+
 //----------------------------------------------
 //The Switch Statement
 
@@ -614,7 +614,7 @@ switch (language) {
     console.log('Great language too :D')
 }
 
-/*
+
 //----------------------------------------------
 //Statements and Expressions
 
@@ -664,7 +664,20 @@ if (age >= 18) {
 //  ternary operator is an expression, so we can use it inside template literals
 console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`)
 
+console.log(' ')
 
+country = {
+  name: 'Brazil',
+  population: 214,
+  language: 'Portuguese',
+  continent: 'South America',
+}
+
+country.population > 33
+  ? console.log(`${country.name}'s population is above average`)
+  : console.log(`${country.name}'s population is below average`)
+
+*/
 //----------------------------------------------
 //Coding Challenge #4
 
@@ -687,5 +700,3 @@ console.log(
     2
   )}, and the total value $${billTotal.toFixed(2)}`
 )
-
-*/
