@@ -372,7 +372,7 @@ if (height) {
   console.log('Height is undefined')
 }
 
-*/
+
 //----------------------------------------------
 //Equality Operators: == vs. ===
 
@@ -418,7 +418,7 @@ if (numNeighbors === 1) {
   console.log('No borders')
 }
 
-/*
+*/
 //----------------------------------------------
 //Logical Operators
 
@@ -448,7 +448,34 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 
 //  the NOT operator has precedence over the AND and OR operator
 
+console.log(' ')
 
+function Country(name, language, population, isIsland) {
+  this.name = name
+  this.language = language
+  this.population = population
+  this.isIsland = isIsland
+}
+
+const brazil = new Country('Brazil', 'Portuguese', 210, false)
+
+const canada = new Country('Canada', 'English', 37, false)
+
+let countries = [brazil, canada]
+
+for (let i = 0; i < countries.length; i++) {
+  if (
+    countries[i].language === 'English' &&
+    countries[i].population < 50 &&
+    !countries[i].isIsland
+  ) {
+    console.log(`You should live in ${countries[i].name} :)`)
+  } else {
+    console.log(`${countries[i].name} does not meet your criteria :(`)
+  }
+}
+
+/*
 //----------------------------------------------
 //Coding Challenge #3
 
