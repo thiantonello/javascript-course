@@ -418,7 +418,7 @@ if (numNeighbors === 1) {
   console.log('No borders')
 }
 
-*/
+
 //----------------------------------------------
 //Logical Operators
 
@@ -475,7 +475,7 @@ for (let i = 0; i < countries.length; i++) {
   }
 }
 
-/*
+
 //----------------------------------------------
 //Coding Challenge #3
 
@@ -532,7 +532,7 @@ if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
   console.log('No one wins the trophy')
 }
 
-
+*/
 //----------------------------------------------
 //The Switch Statement
 
@@ -584,7 +584,37 @@ switch (day) {
     console.log('Not a valid day')
 }
 
+console.log(' ')
 
+const language = capitalizeFirstLetter(
+  prompt('Enter a language name').trim().toLowerCase()
+)
+
+switch (language) {
+  //  case 'Chinese' || 'Mandarin': //  is not possible, because the logical OR operator (||) will not work in a switch case as one might think, only the first argument will be considered at execution time.
+  case 'Chinese':
+    console.log('MOST number of native speakers!')
+    break
+  case 'Mandarin':
+    console.log('MOST number of native speakers!')
+    break
+  case 'Spanish':
+    console.log('2nd place in number of native speakers')
+    break
+  case 'English':
+    console.log('3rd place in number of native speakers')
+    break
+  case 'Hindi':
+    console.log('Number 4 in number of native speakers')
+    break
+  case 'Arabic':
+    console.log('5th most spoken language')
+    break
+  default:
+    console.log('Great language too :D')
+}
+
+/*
 //----------------------------------------------
 //Statements and Expressions
 
