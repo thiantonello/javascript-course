@@ -6,6 +6,7 @@
 
 // strict mode shows us errors that would otherwise be silent
 
+/*
 console.log('Hello World!')
 
 //----------------------------------------------------------------------------//
@@ -43,3 +44,110 @@ const canada = describeCountry('Canada', 38, 'Ottawa')
 console.log(brazil)
 console.log(usa)
 console.log(canada)
+
+*/
+//----------------------------------------------------------------------------//
+//Function Declarations vs. Expressions
+
+//  Function declaration
+//  we can call the function before the declaration because the function is already in the execution context
+//  this happens because the function declaration is hoisted
+const age1 = calcAge1(1996)
+console.log(age1)
+
+function calcAge1(birthYear) {
+  return new Date().getFullYear() - birthYear
+}
+
+//  Function expression
+//  we can't call the function before the declaration
+//  const age2 = calcAge2(1996) // here we get an error because the function is not in the execution context
+
+const calcAge2 = function (birthYear) {
+  return new Date().getFullYear() - birthYear
+}
+
+const age2 = calcAge2(1996)
+console.log(age1, age2)
+
+console.log(' ')
+
+//  Assignments:
+//  LECTURE: Functions
+//  1. Write a function called 'describeCountry' which takes three parameters:
+//  'country', 'population' and 'capitalCity'. Based on this input, the
+//  function returns a string with this format: 'Finland has 6 million people and its capital city is Helsinki'
+//  2. Call this function 3 times, with input data for 3 different countries. Store the
+//  returned values in 3 different variables, and log them to the console
+
+//  object destructuring on parameters
+const describeCountry = function ({ countryName, population, capitalCity }) {
+  return `${countryName} has ${population} million people and its capital city is ${capitalCity}`
+}
+
+// const country0 = { name: 'Brazil', population: 214, capitalCity: 'Brasília' }
+// const country1 = { name: 'Portugal', population: 33, capitalCity: 'Lisboa' }
+// const country2 = { name: 'China', population: 1412, capitalCity: 'Beijing' }
+
+// console.log(describeCountry(country0))
+// console.log(describeCountry(country1))
+// console.log(describeCountry(country2))
+
+//  refactoring
+const countries = [
+  { countryName: 'Brazil', population: 214, capitalCity: 'Brasília' },
+  { countryName: 'Portugal', population: 33, capitalCity: 'Lisboa' },
+  { countryName: 'China', population: 1412, capitalCity: 'Beijing' },
+]
+
+countries.forEach((country) => console.log(describeCountry(country)))
+
+console.log(' ')
+
+//  LECTURE: Function Declarations vs. Expressions
+//  1. The world population is 7900 million people. Create a function declaration
+//  called 'percentageOfWorld1' which receives a 'population' value, and
+//  returns the percentage of the world population that the given population
+//  represents. For example, China has 1441 million people, so it's about 18.2% of the world population
+//  2. To calculate the percentage, divide the given 'population' value by 7900
+//  and then multiply by 100
+//  3. Call 'percentageOfWorld1' for 3 populations of countries of your choice,
+//  store the results into variables, and log them to the console
+//  4. Create a function expression which does the exact same thing, called
+//  'percentageOfWorld2', and also call it with 3 country populations (can be
+//  the same populations)
+
+const countries2 = [
+  { countryName: 'Brazil', population: 214, capitalCity: 'Brasília' },
+  { countryName: 'Portugal', population: 33, capitalCity: 'Lisboa' },
+  { countryName: 'China', population: 1412, capitalCity: 'Beijing' },
+]
+
+//  function declaration hoisting in action
+countries2.forEach((country) => console.log(percentageOfWorld1(country)))
+
+//  function declaration
+function percentageOfWorld1({ countryName, population }) {
+  const worldPopulation = 7_900
+  const percentage = (population * 100) / worldPopulation
+
+  return `${countryName} has ${population}, so it's about ${percentage.toFixed(
+    1
+  )} of the world's population.`
+}
+
+console.log(' ')
+
+//  countries2.forEach((country) => console.log(percentageOfWorld2(country))) can't be invoked here because percentageOfWorld2 was not initialized yet, there is no hoisting on function expression
+
+//  function expression
+const percentageOfWorld2 = function ({ countryName, population }) {
+  const worldPopulation = 7_900
+  const percentage = (population * 100) / worldPopulation
+
+  return `${countryName} has ${population}, so it's about ${percentage.toFixed(
+    1
+  )} of the world's population.`
+}
+
+countries2.forEach((country) => console.log(percentageOfWorld2(country)))
