@@ -45,7 +45,7 @@ console.log(brazil)
 console.log(usa)
 console.log(canada)
 
-*/
+
 //----------------------------------------------------------------------------//
 //Function Declarations vs. Expressions
 
@@ -151,3 +151,38 @@ const percentageOfWorld2 = function ({ countryName, population }) {
 }
 
 countries2.forEach((country) => console.log(percentageOfWorld2(country)))
+
+*/
+//----------------------------------------------------------------------------//
+//Arrow Functions
+const birthYear = 1996
+
+//  An arrow function expression is a compact alternative to a traditional function expression, with some semantic differences and deliberate limitations in usage:
+//    Arrow functions don't have their own bindings to this, arguments, or super, and should not be used as methods.
+
+//    Arrow functions cannot be used as constructors. Calling them with new throws a TypeError. They also don't have access to the new.target keyword.
+
+//    Arrow functions cannot use yield within their body and cannot be created as generator functions.
+
+//    Rest parameters, default parameters, and destructuring within params are supported, and always require parentheses around the params.
+
+//    Arrow functions are always unnamed. If the arrow function needs to call itself, use a named function expression instead. You can also assign the arrow function to a variable so it has a name.
+const calcAge3 = (birthYear) => new Date().getFullYear() - birthYear
+
+const age = calcAge3(birthYear)
+
+console.log(calcAge3(birthYear))
+
+const yearsUntilRetirement = (age, firstName) => {
+  const yearsLeft = 65 - age
+
+  const retirement =
+    yearsLeft > 0
+      ? `${firstName} retires in ${yearsLeft} years`
+      : `${firstName} is ready to retire`
+
+  return retirement
+}
+
+console.log(yearsUntilRetirement(25, 'John'))
+console.log(yearsUntilRetirement(67, 'Mark'))
