@@ -152,7 +152,7 @@ const percentageOfWorld2 = function ({ countryName, population }) {
 
 countries2.forEach((country) => console.log(percentageOfWorld2(country)))
 
-*/
+
 //----------------------------------------------------------------------------//
 //Arrow Functions
 const birthYear = 1996
@@ -186,3 +186,26 @@ const yearsUntilRetirement = (age, firstName) => {
 
 console.log(yearsUntilRetirement(25, 'John'))
 console.log(yearsUntilRetirement(67, 'Mark'))
+
+*/
+//  Assignments:
+//  LECTURE: Arrow Functions
+//  1. Recreate the last assignment, but this time create an arrow function called
+
+const countries3 = [
+  { countryName: 'Brazil', population: 214, capitalCity: 'Brasília' },
+  { countryName: 'Portugal', population: 33, capitalCity: 'Lisboa' },
+  { countryName: 'China', population: 1412, capitalCity: 'Beijing' },
+]
+
+//  arrow function
+const percentageOfWorld3 = ({ countryName, population }) => {
+  const worldPopulation = 7_900
+  const percentage = (population * 100) / worldPopulation
+
+  return `${countryName} has ${population}, so it's about ${percentage.toFixed(
+    1
+  )} of the world's population.`
+}
+
+countries.forEach((country) => console.log(percentageOfWorld3(country)))
