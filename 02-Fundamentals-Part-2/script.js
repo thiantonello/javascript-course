@@ -187,7 +187,7 @@ const yearsUntilRetirement = (age, firstName) => {
 console.log(yearsUntilRetirement(25, 'John'))
 console.log(yearsUntilRetirement(67, 'Mark'))
 
-*/
+
 //  Assignments:
 //  LECTURE: Arrow Functions
 //  1. Recreate the last assignment, but this time create an arrow function called
@@ -209,3 +209,52 @@ const percentageOfWorld3 = ({ countryName, population }) => {
 }
 
 countries.forEach((country) => console.log(percentageOfWorld3(country)))
+
+*/
+//----------------------------------------------------------------------------//
+//Functions Calling Other Functions
+
+function cutFruitPieces(fruit) {
+  return fruit * 4
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples)
+  const orangePieces = cutFruitPieces(oranges)
+
+  const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of oranges.`
+
+  return juice
+}
+
+console.log(fruitProcessor(2, 3))
+
+console.log(' ')
+
+//  Assignments:
+//  LECTURE: Functions Calling Other Functions
+//  1. Create a function called 'describePopulation'. Use the function type you
+//  like the most. This function takes in two arguments: 'country' and
+
+const countries = [
+  { countryName: 'Brazil', population: 214, capitalCity: 'Brasília' },
+  { countryName: 'Portugal', population: 33, capitalCity: 'Lisboa' },
+  { countryName: 'China', population: 1412, capitalCity: 'Beijing' },
+]
+
+function percentageOfWorld(population) {
+  const worldPopulation = 7_900
+  const percentage = (population * 100) / worldPopulation
+
+  return percentage
+}
+
+function describePopulation({ countryName, population }) {
+  const percentage = percentageOfWorld(population)
+
+  return `${countryName} has ${population} million people, which is about ${percentage.toFixed(
+    1
+  )}% of the world.`
+}
+
+countries.forEach((country) => console.log(describePopulation(country)))
