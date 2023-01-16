@@ -210,7 +210,7 @@ const percentageOfWorld3 = ({ countryName, population }) => {
 
 countries.forEach((country) => console.log(percentageOfWorld3(country)))
 
-*/
+
 //----------------------------------------------------------------------------//
 //Functions Calling Other Functions
 
@@ -258,3 +258,52 @@ function describePopulation({ countryName, population }) {
 }
 
 countries.forEach((country) => console.log(describePopulation(country)))
+
+*/
+//----------------------------------------------------------------------------//
+//Reviewing Functions
+
+const calcAge = function (birthYear) {
+  return new Date().getFullYear() - birthYear
+}
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = calcAge(birthYear)
+  const yearsLeft = 65 - age
+
+  if (yearsLeft > 0) {
+    return `${firstName} retires in ${yearsLeft} years`
+  } else {
+    return `${firstName} is ready to retire`
+  }
+}
+
+console.log(yearsUntilRetirement(1991, 'John'))
+console.log(yearsUntilRetirement(1970, 'Mark'))
+console.log(yearsUntilRetirement(1955, 'Paul'))
+
+//  in short:
+//  Function declaration is a function that is defined in the main body of the code. It is hoisted to the top of the code and can be called before it is defined.
+
+//  Function expression is a function that is defined inside a variable. It is not hoisted to the top of the code and can't be called before it is defined.
+
+//  Arrow function is a function that is defined using the arrow syntax. It is not hoisted to the top of the code and can't be called before it is defined. Great for one-liners and callbacks. Has no this keyword.
+
+function calcAge1(birthYear) {
+  return new Date().getFullYear() - birthYear
+}
+
+const calcAge2 = function (birthYear) {
+  return new Date().getFullYear() - birthYear
+}
+
+const calcAge3 = (birthYear) => new Date().getFullYear() - birthYear
+
+//  above three different ways to write the same function, but they all work in a similar way: receive input data, transform it, and return the output data.
+
+//  Anatomy of a function:
+//  1. The function keyword
+//  2. The function name
+//  3. The parameters
+//  4. The function body
+//  5. The return statement
