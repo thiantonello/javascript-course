@@ -375,7 +375,7 @@ checkWinner(0)
 console.log(' ')
 checkWinner(1)
 
-*/
+
 //----------------------------------------------------------------------------//
 //Introduction to Arrays
 
@@ -465,3 +465,30 @@ const ages = [
 ]
 
 console.log(ages)
+
+*/
+//  Assignments:
+//  1. Create an array containing 4 population values of 4 countries of your choice. You may use the values you have been using previously. Store this array into a variable called 'populations'
+//  2. Log to the console whether the array has 4 elements or not (true or false)
+//  3. Create an array called 'percentages' containing the percentages of the world population for these 4 population values. Use the function 'percentageOfWorld1' that you created earlier to compute the 4 percentage values
+
+const countryPopulations = [33, 214, 332, 1412]
+
+console.log(countryPopulations.length === 4)
+
+const percentageOfWorld1 = function (populationList) {
+  const percentages = []
+
+  for (let i = 0; i < populationList.length; i++) {
+    percentages.push(((populationList[i] / 7900) * 100).toFixed(1))
+  }
+
+  //  same as above, but using forEach
+  // populationList.forEach((population) => {
+  //   percentages.push(((population / 7900) * 100).toFixed(1))
+  // })
+
+  return percentages
+}
+
+console.log(percentageOfWorld1(countryPopulations))
