@@ -466,8 +466,8 @@ const ages = [
 
 console.log(ages)
 
-*/
 //  Assignments:
+//  LECTURE: Introduction to Arrays
 //  1. Create an array containing 4 population values of 4 countries of your choice. You may use the values you have been using previously. Store this array into a variable called 'populations'
 //  2. Log to the console whether the array has 4 elements or not (true or false)
 //  3. Create an array called 'percentages' containing the percentages of the world population for these 4 population values. Use the function 'percentageOfWorld1' that you created earlier to compute the 4 percentage values
@@ -492,3 +492,100 @@ const percentageOfWorld1 = function (populationList) {
 }
 
 console.log(percentageOfWorld1(countryPopulations))
+
+
+//----------------------------------------------------------------------------//
+//Basic Array Operations (Methods)
+
+const friends = ['Michael', 'Steven', 'Peter']
+
+//  add elements to the array
+friends.push('Jay') //  adds element to the end of the array
+//    push returns the new length of the array
+
+friends.unshift('John') //  adds element to the beginning of the array
+//    unshift returns the new length of the array
+
+console.log(friends)
+
+//  remove elements from the array
+friends.pop() //  removes last element from the array
+//    pop returns the removed element
+const poppedFriend = friends.pop()
+
+console.log(poppedFriend)
+console.log(friends)
+
+const shiftedFriend = friends.shift() //  removes first element from the array
+//    shift returns the removed element
+console.log(shiftedFriend)
+console.log(friends)
+
+console.log(' ')
+
+//  indexOf method uses strict equality operator (===), which means that it does not do type coercion
+//  indexOf method returns the position of the element in the array or -1 if the element is not in the array
+friends.push(46)
+console.log(friends.indexOf('Michael')) //  returns the position of the element in the array
+console.log(friends.indexOf('Bob')) //  returns -1 if the element is not in the array
+console.log(friends.indexOf('46')) //  returns -1 because it does not do type coercion
+console.log(friends)
+
+console.log(' ')
+
+//  includes method uses strict equality operator (===), which means that it does not do type coercion
+//  includes method returns a boolean value
+friends.push(23)
+console.log(friends.includes('Steven')) //  returns true if the element is in the array
+console.log(friends.includes('Bob')) //  returns false if the element is not in the array
+console.log(friends.includes('23')) //  returns false because it does not do type coercion
+console.log(friends)
+
+console.log(' ')
+
+//  includes method is a better way to check if an element is in an array than using indexOf method, because it is more readable and returns a boolean value
+if (friends.includes('Steven')) {
+  console.log('You have a friend called Steven')
+}
+
+*/
+//  Assignments:
+//  LECTURE: Basic Array Operations (Methods)
+//  1. Create an array containing all the neighboring countries of a country of your choice. Choose a country which has at least 2 or 3 neighbors. Store the array into a variable called 'neighbors'
+
+//  2. At some point, a new country called 'Utopia' is created in the neighborhood of your selected country. So add it to the end of the 'neighbors' array
+
+//  3. Unfortunately, after some time, the new country is dissolved. So remove it from the end of the array
+
+//  4. If the 'neighbors' array does not include the country ‘Germany’, log to the console: 'Probably not a central European country :D'
+
+// 5. Change the name of one of your neighboring countries. To do that, find the index of the country in the 'neighbors' array, and then use that index to change the array at that index position. For example, you can search for 'Sweden' in the array, and then replace it with 'Republic of Sweden'.
+
+const country = 'Italy'
+
+const neighbors = [
+  'Slovenia',
+  'Austria',
+  'Switzerland',
+  'France',
+  'San Marino',
+  'Vatican City',
+]
+
+const newCountry = 'Utopia'
+
+neighbors.push(newCountry)
+
+console.log(neighbors)
+
+neighbors.pop()
+
+console.log(neighbors)
+
+if (!neighbors.includes('Germany')) {
+  console.log('Probably not a central European country :D')
+}
+
+neighbors[neighbors.indexOf('San Marino')] = 'Brazil'
+
+console.log(neighbors)
