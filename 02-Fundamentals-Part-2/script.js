@@ -308,7 +308,7 @@ const calcAge3 = (birthYear) => new Date().getFullYear() - birthYear
 //  4. The function body
 //  5. The return statement
 
-*/
+
 //----------------------------------------------------------------------------//
 //Coding Challenge #1
 
@@ -374,3 +374,94 @@ function setRound(roundNumber) {
 checkWinner(0)
 console.log(' ')
 checkWinner(1)
+
+*/
+//----------------------------------------------------------------------------//
+//Introduction to Arrays
+
+//  Arrays are a special type of object. They are used to store multiple values in a single variable. They are ordered, which means that the order of the elements in the array is the same as the order in which we specified them.
+
+const friend1 = 'Michael'
+const friend2 = 'Steven'
+const friend3 = 'Peter'
+
+//  above is a bad way to store a list of friends. It is not scalable. If we want to add more friends, we have to create more variables. If we want to remove a friend, we have to remove a variable. If we want to change the order of the friends, we have to change the order of the variables.
+
+const friends = ['Michael', 'Steven', 'Peter']
+
+//  above is a good way to store a list of friends. It is scalable. If we want to add more friends, we just add them to the array. If we want to remove a friend, we just remove it from the array. If we want to change the order of the friends, we just change the order of the elements in the array.
+
+console.log(friends)
+
+console.log(' ')
+
+//  Arrays are zero-based, which means that the first element in the array is at position 0, the second element is at position 1, and so on.
+
+const years = new Array(1991, 1996, 1984, 2008, 2020)
+console.log(years)
+
+console.log(' ')
+
+console.log(friends[0])
+console.log(friends[2])
+
+console.log(' ')
+
+console.log(friends.length) //  number of elements in the array
+
+//  inside the position index we can also use expressions, not just numbers
+console.log(friends[friends.length - 1]) //  last element in the array
+//  we can't use statements inside the position index
+
+friends[2] = 'Jay'
+console.log(friends)
+
+//  we used the const keyword to declare the array, but we can still change the elements inside the array. This is because arrays are mutable, which means that we can change the elements inside the array, but we can't change the array itself.
+
+//  because arrays aren't primitive values, they are objects, and objects are mutable, we can also add new properties to the array.
+
+//  const with primitive values can't be changed, but const with objects can be changed.
+
+//  friends = ['Bob', 'Alice'] //  this will throw an error, because we can't change the array itself that was declared with const (we can't reassign it)
+
+console.log(' ')
+
+const firstName = 'Jonas'
+const jonas = [firstName, 'Schmedtmann', 2037 - 1991, 'teacher', friends]
+//  we can store different types of values inside the same array
+//  we can use expressions inside the array because they are evaluated before the array is created
+//  we can store arrays inside arrays
+
+console.log(jonas)
+console.log(jonas[jonas.length - 1])
+
+console.log(' ')
+
+//  Exercise
+const calcAge = function (birthYear) {
+  return new Date().getFullYear() - birthYear
+}
+
+const yearsFriends = [1990, 1967, 2002, 2010, 2018]
+
+console.log(yearsFriends + 10) //  this will return the array as a string and add 10 to the end of the string
+
+//  console.log(yearsFriends - 10) //  this will throw an error, because we can't subtract 10 from an array
+
+console.log(' ')
+
+const age1 = calcAge(yearsFriends[0])
+const age2 = calcAge(yearsFriends[1])
+const age3 = calcAge(yearsFriends[yearsFriends.length - 1])
+
+console.log(age1, age2, age3)
+
+//  we can use the calcAge function to calculate the ages of the friends and store them in an array, because the calcAge function is an expression and it returns a value
+
+const ages = [
+  calcAge(yearsFriends[0]),
+  calcAge(yearsFriends[1]),
+  calcAge(yearsFriends[yearsFriends.length - 1]),
+]
+
+console.log(ages)
