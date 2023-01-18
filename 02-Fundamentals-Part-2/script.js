@@ -589,7 +589,7 @@ neighbors[neighbors.indexOf('San Marino')] = 'Brazil'
 
 console.log(neighbors)
 
-*/
+
 //----------------------------------------------------------------------------//
 //Coding Challenge #2
 
@@ -626,3 +626,29 @@ calcTip(bills)
 console.log(bills)
 console.log(tips)
 console.log(total)
+
+*/
+//----------------------------------------------------------------------------//
+//Introduction to Objects
+
+//  object literal syntax (curly braces {} are used)
+const myCountry = {
+  country: 'Italy',
+  capital: 'Rome',
+  language: 'Italian',
+  population: 60,
+  neighbors: [
+    'Slovenia',
+    'Austria',
+    'Switzerland',
+    'France',
+    'San Marino',
+    'Vatican City',
+  ],
+}
+
+//  just like arrays, we use objects to store data
+
+//  objects are used to store data in key-value pairs, where the key is a string and the value can be any data type
+
+//  unlike arrays objects are unordered, which means that the order in which we write the key-value pairs does not matter
