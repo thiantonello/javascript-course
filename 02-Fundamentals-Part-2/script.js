@@ -627,7 +627,7 @@ console.log(bills)
 console.log(tips)
 console.log(total)
 
-*/
+
 //----------------------------------------------------------------------------//
 //Introduction to Objects
 
@@ -652,3 +652,101 @@ const myCountry = {
 //  objects are used to store data in key-value pairs, where the key is a string and the value can be any data type
 
 //  unlike arrays objects are unordered, which means that the order in which we write the key-value pairs does not matter
+
+//----------------------------------------------------------------------------//
+//Dot vs. Bracket Notation
+
+const thiago = {
+  firstName: 'Thiago',
+  lastName: 'Antonello Vargas',
+  age: new Date().getFullYear() - 1996,
+  job: 'Software Engineer',
+  friends: ['Ryan', 'Gabriel', 'Guilherme', 'Heitor', 'Atila'],
+}
+
+//  Dot notation
+console.log(thiago.firstName)
+
+//  Bracket notation
+console.log(thiago['firstName'])
+
+//  we can use either dot or bracket notation to access the values of an object
+
+const nameKey = 'Name'
+console.log(thiago['last' + nameKey])
+console.log(thiago['first' + nameKey] + ' ' + thiago['last' + nameKey])
+
+console.log(thiago)
+
+//  when we need to first compute the property name, we use bracket notation
+
+//  in general, use dot notation
+
+//  we can use the prompt method to ask the user what information he wants to know about the object
+const interestedIn = prompt(
+  'What do you want to know about Thiago? Choose between firstName, lastName, age, job and friends'
+)
+
+//  then use the bracket notation to access the value of the property that the user wants to know
+if (thiago[interestedIn]) {
+  console.log(thiago[interestedIn])
+} else {
+  console.log('Please enter a valid property')
+}
+
+//  same as above but using the logical NOT operator (!)
+//  if the user enters a property that does not exist in the object it will return undefined therefore a falsy value, so we could have used the logical NOT operator (!) to check if the property does not exist
+// else if (!thiago[interestedIn]) {
+//   console.log('Please enter a valid property')
+// }
+
+//  we can also use the prompt method to add new properties to the object
+thiago.location = prompt('Where is Thiago?')
+console.log(thiago)
+
+//  we can also use the prompt method to change the value of a property
+thiago.job = prompt("What is Thiago's job?")
+console.log(thiago)
+
+//  we can also use the prompt method to delete a property from the object
+delete thiago.age
+console.log(thiago)
+
+//  Challenge:
+//  "Thiago has 3 friends, and his best friend is called Ryan"
+
+//  write the sentence above using the object properties, without hard-coding the values
+
+console.log(
+  `${thiago.firstName} has ${thiago.friends.length} friends and his best friend is ${thiago.friends[0]}`
+)
+
+*/
+//  Assignments:
+//  LECTURE: Dot vs. Bracket Notation
+
+//  1. Using the object from the previous assignment, log a string like this to the console: 'Finland has 6 million people, their mother tongue is Finnish, they have 3 neighboring countries and a capital called Helsinki.'
+
+//  2. Increase the country's population by two million using dot notation, and then decrease it by two million using brackets notation.
+
+const myCountry = {
+  country: 'Italy',
+  capital: 'Rome',
+  language: 'Italian',
+  population: 60,
+  neighbors: [
+    'Slovenia',
+    'Austria',
+    'Switzerland',
+    'France',
+    'San Marino',
+    'Vatican City',
+  ],
+}
+
+console.log(
+  `${myCountry.country} has ${myCountry.population} million people, their mother tongue is ${myCountry.language}, they have ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}.`
+)
+
+myCountry.population += 2
+console.log(myCountry.population)
