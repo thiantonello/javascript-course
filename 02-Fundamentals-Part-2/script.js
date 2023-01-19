@@ -858,7 +858,7 @@ myCountry.describe()
 
 console.log(myCountry.checkIsland())
 
-*/
+
 //----------------------------------------------------------------------------//
 //Coding Challenge #3
 
@@ -913,4 +913,52 @@ if (winner === 'draw') {
   console.log(
     `${winner.fullName}'s BMI (${winner.bmi}) is higher than ${loser.fullName}'s (${loser.bmi})!`
   )
+}
+
+
+//----------------------------------------------------------------------------//
+//Iteration: The for Loop
+
+//  The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop.
+
+let str = ''
+
+for (let i = 0; i < 10; i++) {
+  str += i
+}
+
+console.log(str)
+
+// for (initialization; condition; afterthought) {
+//   statement
+// }
+
+//  initialization: executed before the first iteration
+
+//  condition: evaluated before each iteration
+
+//  afterthought: executed after each iteration
+
+//  statement: executed as long as the condition is true
+
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`)
+
+  if (rep === 10) {
+    console.log('Time to rest!')
+  }
+}
+
+*/
+//  Assignments:
+//  LECTURE: Iteration: The for Loop
+
+//  There are elections in your country! In a small town, there are only 50 voters. Use a for loop to simulate the 50 people voting, by logging a string like this to the console (for numbers 1 to 50): 'Voter number 1 is currently voting
+
+for (let i = 1; i <= 50; i++) {
+  console.log(`Voter number ${i} is currently voting`)
+
+  if (i === 50) {
+    console.log('Elections are over!')
+  }
 }
