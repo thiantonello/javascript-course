@@ -721,7 +721,6 @@ console.log(
   `${thiago.firstName} has ${thiago.friends.length} friends and his best friend is ${thiago.friends[0]}`
 )
 
-*/
 //  Assignments:
 //  LECTURE: Dot vs. Bracket Notation
 
@@ -750,3 +749,73 @@ console.log(
 
 myCountry.population += 2
 console.log(myCountry.population)
+
+*/
+//----------------------------------------------------------------------------//
+//Object Methods
+
+const thiago = {
+  firstName: 'Thiago',
+  lastName: 'Antonello Vargas',
+  birthDate: '1996-03-28',
+  job: 'Software Engineer',
+  friends: ['Ryan', 'Gabriel', 'Guilherme', 'Heitor', 'Atila'],
+  hasDriversLicense: true,
+
+  //  we can also add functions to objects, this is called a method
+
+  //  we can use the this keyword to access the properties of the object inside the method
+
+  //  this keyword is a special variable that points to the object that is calling the method
+
+  // calcAge: function () {
+  //   this.age = new Date().getFullYear() - 1996
+  //   return this.age
+  // },
+
+  calcAge: function () {
+    const birthDate = new Date(this.birthDate)
+    const currentDate = new Date()
+
+    let years = currentDate.getFullYear() - birthDate.getFullYear()
+
+    if (
+      currentDate.getMonth() < birthDate.getMonth() ||
+      (currentDate.getMonth() == birthDate.getMonth() &&
+        currentDate.getDate() < birthDate.getDate())
+    ) {
+      years--
+    }
+
+    //  we can also add a new property to the object using the this keyword inside the method and assigning it the value of the variable age
+    this.age = years
+
+    return years
+  },
+
+  //  we could also have used calcAge: () {} instead of calcAge: function () {}
+
+  getAllData() {
+    console.log(this)
+  },
+
+  getSummary() {
+    return `${this.firstName} is a ${this.age} year old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license`
+  },
+}
+
+console.log(thiago.calcAge())
+console.log(thiago['calcAge']())
+
+thiago.getAllData()
+
+console.log(' ')
+
+//  Challenge:
+//  "Thiago is a 26 year old Software Engineer, and he has a driver's license"
+
+//  write the sentence above using the object properties, without hard-coding the values
+
+console.log(thiago.getSummary())
