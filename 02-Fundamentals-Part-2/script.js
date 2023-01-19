@@ -819,3 +819,41 @@ console.log(' ')
 //  write the sentence above using the object properties, without hard-coding the values
 
 console.log(thiago.getSummary())
+
+//  Assignments:
+//  LECTURE: Object Methods
+
+// 1. Add a method called 'describe' to the 'myCountry' object. This method will log a string to the console, similar to the string logged in the previous assignment, but this time using the 'this' keyword.
+// 2. Call the 'describe' method
+// 3. Add a method called 'checkIsland' to the 'myCountry' object. This method will set a new property on the object, called 'isIsland'. 'isIsland' will be true if there are no neighbouring countries, and false if there are. Use the ternary operator to set the property.
+
+const myCountry = {
+  country: 'Italy',
+  capital: 'Rome',
+  language: 'Italian',
+  population: 60,
+  neighbors: [
+    'Slovenia',
+    'Austria',
+    'Switzerland',
+    'France',
+    'San Marino',
+    'Vatican City',
+  ],
+
+  describe() {
+    return console.log(
+      `${this.country} has ${this.population} million people, their mother tongue is ${this.language}, they have ${this.neighbors.length} neighboring countries and a capital called ${this.capital}.`
+    )
+  },
+
+  checkIsland: function () {
+    this.isIsland = this.neighbors.length === 0 ? true : false
+
+    return this.isIsland
+  },
+}
+
+myCountry.describe()
+
+console.log(myCountry.checkIsland())
