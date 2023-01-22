@@ -949,7 +949,7 @@ for (let rep = 1; rep <= 10; rep++) {
   }
 }
 
-*/
+
 //  Assignments:
 //  LECTURE: Iteration: The for Loop
 
@@ -962,3 +962,91 @@ for (let i = 1; i <= 50; i++) {
     console.log('Elections are over!')
   }
 }
+
+
+//----------------------------------------------------------------------------//
+//Looping Arrays, Breaking and Continuing
+
+const thiago = [
+  'Thiago',
+  'Antonello Vargas',
+  new Date().getFullYear() - 1996,
+  'Software Engineer',
+  ['Ryan', 'Gabriel', 'Guilherme', 'Heitor', 'Atila'],
+  true,
+]
+
+const types = []
+
+for (let i = 0; i < thiago.length; i++) {
+  console.log(thiago[i], typeof thiago[i])
+
+  //  Filling types array
+  // types[i] = typeof thiago[i]
+  types.push(typeof thiago[i])
+}
+
+console.log(types)
+
+const years = [1991, 2007, 1969, 2020]
+
+const ages = []
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(new Date().getFullYear() - years[i])
+}
+
+console.log(ages)
+
+//  continue and break
+
+// continue: exists the current iteration and continues to the next one
+
+console.log('--- ONLY STRINGS ---')
+for (let i = 0; i < thiago.length; i++) {
+  if (typeof thiago[i] !== 'string') continue
+
+  console.log(thiago[i], typeof thiago[i])
+}
+
+// break: complete terminate and exits the loop
+
+console.log('--- BREAK WITH NUMBER ---')
+for (let i = 0; i < thiago.length; i++) {
+  if (typeof thiago[i] === 'number') break
+
+  console.log(thiago[i], typeof thiago[i])
+}
+
+*/
+//  Assignments:
+//  Looping Arrays, Breaking and Continuing
+
+//  1. Let's bring back the 'populations' array from a previous assignment
+
+//  2. Use a for loop to compute an array called 'percentages2' containing the percentages of the world population for the 4 population values. Use the function 'percentageOfWorld1' that you created earlier
+
+//  3. Confirm that 'percentages2' contains exactly the same values as the 'percentages' array that we created manually in the previous assignment, and reflect on how much better this solution is
+
+const countryPopulations = [33, 214, 332, 1412]
+
+console.log(countryPopulations.length === 4)
+
+const percentageOfWorld1 = function (populationList) {
+  const percentages = []
+
+  for (let i = 0; i < populationList.length; i++) {
+    percentages.push(((populationList[i] / 7900) * 100).toFixed(1))
+  }
+
+  //  same as above, but using forEach
+  // populationList.forEach((population) => {
+  //   percentages.push(((population / 7900) * 100).toFixed(1))
+  // })
+
+  return percentages
+}
+
+console.log(percentageOfWorld1(countryPopulations))
+
+//  it was already done with for loop
