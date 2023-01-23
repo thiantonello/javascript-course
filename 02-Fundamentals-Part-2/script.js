@@ -1018,7 +1018,6 @@ for (let i = 0; i < thiago.length; i++) {
   console.log(thiago[i], typeof thiago[i])
 }
 
-*/
 //  Assignments:
 //  Looping Arrays, Breaking and Continuing
 
@@ -1050,3 +1049,47 @@ const percentageOfWorld1 = function (populationList) {
 console.log(percentageOfWorld1(countryPopulations))
 
 //  it was already done with for loop
+
+
+//----------------------------------------------------------------------------//
+//Looping Backwards and Loops in Loops
+
+const thiago = [
+  'Thiago',
+  'Antonello Vargas',
+  new Date().getFullYear() - 1996,
+  'Software Engineer',
+  ['Ryan', 'Gabriel', 'Guilherme', 'Heitor', 'Atila'],
+]
+
+for (let i = thiago.length - 1; i >= 0; i--) {
+  console.log(i, thiago[i])
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`----- Starting exercise ${exercise}`)
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Lifting weight repetition ${rep} 🏋️‍♀️`)
+  }
+}
+
+*/
+//  Assignments:
+//  LECTURE: Looping Backwards and Loops in Loops
+
+// 1. Store this array of arrays into a variable called 'listOfNeighbors' [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+
+// 2. Log only the neighbouring countries to the console, one by one, not the entire arrays. Log a string like 'Neighbor: Canada' for each country
+
+// 3. You will need a loop inside a loop for this. This is actually a bit tricky, so don't worry if it's too difficult for you! But you can still try to figure this out anyway �
+
+const listOfNeighbors = [
+  ['Canada', 'Mexico'],
+  ['Spain'],
+  ['Norway', 'Sweden', 'Russia'],
+]
+
+for (let i = 0; i < listOfNeighbors.length; i++)
+  for (let y = 0; y < listOfNeighbors[i].length; y++)
+    console.log(`Neighbor: ${listOfNeighbors[i][y]}`)
