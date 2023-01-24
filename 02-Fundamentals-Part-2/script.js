@@ -1124,7 +1124,7 @@ while (dice !== 6) {
   if (dice === 6) console.log(`Loop is about to end...`)
 }
 
-*/
+
 //  Assignments:
 //  LECTURE: The while Loop
 
@@ -1151,3 +1151,74 @@ const percentageOfWorld1 = function (populationList) {
 console.log(percentageOfWorld1(countryPopulations))
 
 //  it makes more sense to use the for loop because we know how many countries are inside the array
+
+*/
+//----------------------------------------------------------------------------//
+//Coding Challenge #4
+
+//  Let's improve Steven's tip calculator even more, this time using loops!
+
+//  Tasks:
+//  1. Create an array 'bills' containing all 10 test bills values
+//  2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+//  3. Use the 'calcTip' function we wrote before to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
+
+//  BONUS:
+//  Write a function 'calcAverage' which takes an array called 'arr' as an argument. This function calculates the average of all numbers in the given array.
+
+//  Test data: 125, 555 and 44
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+
+const tips = []
+
+const totals = []
+
+// function calcTip(bills) {
+//   bills.forEach((bill) => {
+//     const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2
+//     tips.push(Number(tip.toFixed(2)))
+
+//     total.push(Number((bill + tip).toFixed(2)))
+//   })
+// }
+
+function calcTip(bill) {
+  const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2
+  tips.push(Number(tip.toFixed(2)))
+
+  totals.push(Number((bill + tip).toFixed(2)))
+}
+
+for (let i = 0; i < bills.length; i++) {
+  calcTip(bills[i])
+}
+
+console.log(bills)
+console.log(tips)
+console.log(totals)
+
+console.log(' ')
+
+function calcAverage(arr) {
+  let average = 0
+
+  // let i = 0
+
+  // for (; i < arr.length; i++) {
+  //   average += arr[i]
+  // }
+
+  // return average / i
+
+  let numberOfElements = 0
+
+  arr.forEach((element) => {
+    average += element
+    numberOfElements++
+  })
+
+  return Number((average / numberOfElements).toFixed(2))
+}
+
+console.log('The average spent was', calcAverage(totals))
