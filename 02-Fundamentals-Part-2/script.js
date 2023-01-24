@@ -1074,7 +1074,7 @@ for (let exercise = 1; exercise < 4; exercise++) {
   }
 }
 
-*/
+
 //  Assignments:
 //  LECTURE: Looping Backwards and Loops in Loops
 
@@ -1093,3 +1093,61 @@ const listOfNeighbors = [
 for (let i = 0; i < listOfNeighbors.length; i++)
   for (let y = 0; y < listOfNeighbors[i].length; y++)
     console.log(`Neighbor: ${listOfNeighbors[i][y]}`)
+
+
+//----------------------------------------------------------------------------//
+//The while Loop
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`)
+
+//   if (rep === 10) {
+//     console.log('Time to rest!')
+//   }
+// }
+
+//  same as above but with while loop
+let rep = 1
+
+while (rep <= 10) {
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`)
+
+  rep++
+}
+
+let dice
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`)
+  dice = Math.trunc(Math.random() * 6) + 1
+
+  if (dice === 6) console.log(`Loop is about to end...`)
+}
+
+*/
+//  Assignments:
+//  LECTURE: The while Loop
+
+//  1. Recreate the challenge from the lecture 'Looping Arrays, Breaking and Continuing', but this time using a while loop (call the array 'percentages3')
+
+//  2. Reflect on what solution you like better for this task: the for loop or the while loop?
+
+const countryPopulations = [33, 214, 332, 1412]
+
+console.log(countryPopulations.length === 4)
+
+const percentageOfWorld1 = function (populationList) {
+  const percentages = []
+  let i = 0
+
+  while (i < populationList.length) {
+    percentages.push(((populationList[i] / 7900) * 100).toFixed(1))
+    i++
+  }
+
+  return percentages
+}
+
+console.log(percentageOfWorld1(countryPopulations))
+
+//  it makes more sense to use the for loop because we know how many countries are inside the array
