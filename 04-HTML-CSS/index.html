@@ -2,7 +2,7 @@
 <html lang="en">
   <!--
 head stores the settings of the page is like describing the page.
--->
+  -->
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,14 +14,40 @@ head stores the settings of the page is like describing the page.
   body stores the content visible on the page
   -->
   <body style="background-color: rgb(174, 171, 171)">
-    <!-- h stands for heading -->
+    <!-- h === heading -->
     <h1>JavaScript is fun, but so is HTML and CSS!</h1>
-    <!-- p stands for paragraph -->
-    <p>
+    <!-- p === paragraph -->
+
+    <!-- HTML attributes provide additional information about HTML elements. Like a class, id, src and others -->
+    <!-- classes can be reused -->
+    <p class="first">
       You can learn JavaScript without HTML and CSS, but for DOM manipulation
-      it's useful to have some basic ideas of HTML and CSS.
+      it's useful to have some basic ideas of HTML and CSS. You can learn more
+      about it on
+      <a href="https://www.udemy.com/user/jonasschmedtmann/">Udemy</a>
     </p>
+
     <h2>Just another heading</h2>
-    <p>Just another paragraph</p>
+
+    <p class="second">Just another paragraph</p>
+
+    <!-- ids have to be unique, that means they can only be used once -->
+    <!-- in practice we don't almost never use id to style elements or to select them in JS. It's a better practice to use classes -->
+    <img
+      id="couse-image"
+      src="https://img-c.udemycdn.com/course/240x135/851712_fc61_6.jpg"
+      alt="some image here"
+    />
+
+    <!-- unlike Javascript, css separates words using hyphen (-) -->
+
+    <!-- form defines an HTML form for user input -->
+    <form id="your-name">
+      <h2>Your name here</h2>
+      <p>Please fill this form :)</p>
+
+      <input type="text" placeholder="Your name" />
+      <button>OK!</button>
+    </form>
   </body>
 </html>
