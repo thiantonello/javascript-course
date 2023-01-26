@@ -8,12 +8,14 @@ head stores the settings of the page is like describing the page.
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning HTML & CSS</title>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <!--
   body stores the content visible on the page
   -->
-  <body style="background-color: rgb(174, 171, 171)">
+  <body>
     <!-- h === heading -->
     <h1>JavaScript is fun, but so is HTML and CSS!</h1>
     <!-- p === paragraph -->
@@ -39,12 +41,12 @@ head stores the settings of the page is like describing the page.
       alt="some image here"
     />
 
-    <!-- unlike Javascript, css separates words using hyphen (-) -->
+    <!-- unlike Javascript, css adopts kebab-case and separates words using hyphen (-) -->
 
     <!-- form defines an HTML form for user input -->
     <form id="your-name">
       <h2>Your name here</h2>
-      <p>Please fill this form :)</p>
+      <p class="first">Please fill this form :)</p>
 
       <input type="text" placeholder="Your name" />
       <button>OK!</button>
