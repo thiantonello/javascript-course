@@ -34,13 +34,36 @@ Event Loop: It is a functionality in the JS engine that checks the callback queu
 
 Execution Context: It is an environment in which a piece of JS code is executed. It stores all the necessary information for the execution of the code. It consists of the variable environment, scope chain and the this keyword.
 
-The global execution context is the default execution context. It is created when the JS engine starts the execution of the code. It is the outermost execution context. It executes top-level code which is not inside any function. It is associated with the global object. In the browser, the global object is the window object. In Node.js, the global object is the global object itself. No matter how large the code is, there is only one global execution context.
+THE GLOBAL EXECUTION CONTEXT is the default execution context. It is created when the JS engine starts the execution of the code. It is the outermost execution context. It executes top-level code which is not inside any function. It is associated with the global object. In the browser, the global object is the window object. In Node.js, the global object is the global object itself. No matter how large the code is, there is only one global execution context.
 
 Then the top-level code is executed line by line. If the top-level code contains a function declaration, then a new execution context is created for that function. This is called function execution context. It is created when the function is called. It is associated with the function object. It is created every time the function is called. It is destroyed when the function returns. No matter how many times the function is called, there is only one function execution context.
 
-The function execution context is created when a function is called. The function execution context is pushed on top of the call stack. The call stack is a data structure that records where in the program we are. The JS engine executes the functions from top to bottom. When a function returns, it is removed from the stack and the execution continues in the previous function. The function execution context is destroyed when the function returns. There is only one execution context per function call.
+THE FUNCTION EXECUTION CONTEXT is created when a function is called. The function execution context is pushed on top of the call stack. The call stack is a data structure that records where in the program we are. The JS engine executes the functions from top to bottom. When a function returns, it is removed from the stack and the execution continues in the previous function. The function execution context is destroyed when the function returns. There is only one execution context per function call.
+
+
+// WHAT IS INSIDE THE EXECUTION CONTEXT???
+The execution context consists of the variable environment, scope chain and the this keyword.
 
 Variable Environment: It stores all the variables that are defined in the current scope. It also stores the function declarations. It is created in two phases: creation phase and execution phase. In the creation phase, the variable environment is set up. In the execution phase, the code is executed line by line.
+
+Scope Chain: It is used to resolve variables that are not defined in the current scope. It is created during the creation phase. It consists of the variable environment of the current execution context and the variable environment of its parent execution context. It is used to resolve variables that are not defined in the current scope. It is created during the creation phase. It consists of the variable environment of the current execution context and the variable environment of its parent execution context.
+
+This Keyword: It is a special variable that is created for every execution context. It takes the value of the owner of the function in which the this keyword is used. If the function is called normally, the this keyword takes the value of the global object. If the function is called as a method of an object, the this keyword takes the value of the object itself. If the function is called using the new operator, the this keyword takes the value of the newly created object.
+
+
+The Call Stack is a data structure that records where in the program we are. The JS engine executes the functions from top to bottom. When a function returns, it is removed from the stack and the execution continues in the previous function. The call stack is a data structure that records where in the program we are. The JS engine executes the functions from top to bottom. When a function returns, it is removed from the stack and the execution continues in the previous function.
+
+The code runs inside execution contexts that are placed on top of each other in a data structure called the call stack. The call stack has the following rules:
+
+1. The call stack is processed from top to bottom.
+
+2. The execution context at the top of the stack is the one that is currently running.
+
+3. When a execution context is finished running, it is removed/popped from the stack and the execution context below it resumes execution.
+
+4. The call stack is empty when the JS engine first starts up.
+
+5. The call stack is empty when the JS engine is done executing our script.
 
 
 */
