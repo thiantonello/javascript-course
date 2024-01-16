@@ -165,3 +165,45 @@ The scope chain in a certain scope is equal to adding together all the variable 
 
 The scope chain has nothing to do with the order in which functions were called. It does not affect the scope chain at all!
 */
+//----------------------------------------------------------------------------//
+// Scoping and the Scope Chain in Practice
+function calcAge(birthYear) {
+  const age = 2024 - birthYear;
+
+  function printAge() {
+    let output = `You are ${age}, born in ${birthYear}`;
+    console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millennial = true;
+      // Creating NEW variable with same name as outer scope's variable
+      // const firstName = "Steven";
+      // js would use the variable in the current scope, not the outer scope. Because it first looks at the current scope, and only if it does not find the variable, it looks at the outer scope.
+      const str = `Oh, and you're a millennial, ${firstName}`;
+      console.log(str);
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      const output = "NEW OUTPUT!"; // this variable is in the block scope of the if statement, so it is not the same as the output variable in the printAge function scope.
+    }
+    // console.log(str);
+    // str is not defined because it is block scoped.
+
+    // console.log(millennial) works because var is function scoped and makes the variable available in the whole function scope.
+    console.log(millennial);
+
+    // console.log(add(2, 3)); // in strict mode this throws a ReferenceError because we are trying to access a function that is block scoped.
+    // without strict mode, it would work because the function add would be function scoped.
+
+    console.log(output); // this is the output variable in the printAge function scope. It is not the same as the output variable in the if statement block scope.
+  }
+
+  printAge();
+
+  return age;
+}
+
+const firstName = "Thiago";
+calcAge(1996);
