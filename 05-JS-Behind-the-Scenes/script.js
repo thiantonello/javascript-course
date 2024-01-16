@@ -153,4 +153,15 @@ We get a reference error because the third function only has access to the globa
 
 THE ORDER THAT FUNCTIONS ARE CALLED DOES NOT AFFECT THE SCOPE CHAIN. The scope chain is determined by the order that functions are written lexically in the code.
 
+When the third function is called, it is placed on top of the call stack. The third function has access to the global scope and its own scope. It does not have access to the first and second functions scope. It does not have access to the variables b and c. It only has access to the variable a.
+
+In JavaScript, we have lexical scoping, so the rules of where we can access variables are based on exactly where in the code functions and blocks are written;
+
+Every scope always has access to all variables from all its outer scopes. This is the scope chain! When a variable is not in the current scope, the engine looks up in the scope chain until it finds the variable it's looking for. This is called variable lookup;
+
+The scope chain is a one-way street: a scope will never, ever have access to the variables of an inner scope;
+
+The scope chain in a certain scope is equal to adding together all the variable environments of all the parent scopes;
+
+The scope chain has nothing to do with the order in which functions were called. It does not affect the scope chain at all!
 */
