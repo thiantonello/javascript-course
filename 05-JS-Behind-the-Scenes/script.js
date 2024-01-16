@@ -65,5 +65,92 @@ The code runs inside execution contexts that are placed on top of each other in 
 
 5. The call stack is empty when the JS engine is done executing our script.
 
+//----------------------------------------------------------------------------//
+// Scoping and the Scope Chain
+
+Lexical Scoping: It is a way of scoping in which the scope of a variable is determined by its position inside the source code. It is also called static scoping. It is the most common way of scoping. It is used by most programming languages. It is used by JS.
+
+Scope: Is the place or environment in which a certain variable is declared. It is the current context of execution. It is a region of the code where a variable can be accessed. It is a set of rules for storing variables in some location and for finding those variables at a later time. It is a space or environment in which a variable is declared. In JS we have three types of scope: global scope, function scope and block scope.
+
+Scope of a variable: It is the region of the code where a variable can be accessed.
+
+Global Scope: In JavaScript, global scope is the widest scope available. Variables declared in global scope are accessible from anywhere in your code, whether it's inside functions, conditional statements, loops, or other blocks of code.
+
+Function Scope: Variables declared inside a function are in the function scope. They are accessible only inside the function. They are not accessible outside the function. They are also called local variables.
+
+Block Scope: Variables declared inside a block are in the block scope. They are accessible only inside the block. They are not accessible outside the block. They are also called local variables.
+  Only variables created with let and const are block scoped. Variables created with var are function scoped.
+  Since ES6 we have block scope in JS. Before ES6 we only had global scope and function scope.
+
+Strict mode guarantees that that all functions are block scoped. It is a special mode that we can activate in JS. It is used to write secure JS code. It is used to avoid accidental errors.
+
+After ES6, we have block scope in JS. Before ES6, we only had global scope and function scope. One example of that is a for loop. It is not a function, but creates a scope inside its block (curly braces)
+
+Every scope has access to all the variables from all its outer scopes. This is called lexical scoping. It is also called static scoping. It is the most common way of scoping. It is used by most programming languages. It is used by JS.
+
+Variable lookup: It is the process of looking for a variable in the scope chain. It starts from the current scope and goes up the scope chain until it finds the variable. If the variable is not found, it throws a reference error. There is no look down in the scope chain.
+
+const myName = "Jonas";
+
+// Example 1
+  function first() {
+    const age = 27;
+
+    if (age >= 20) {
+      const decade = 2;
+      var millennial = true;
+    }
+
+    function second() {
+      const job = "software engineer";
+      console.log(`${myName} is a ${age} year old ${job}`);
+    }
+
+    second();
+  }
+
+  first();
+//
+
+In the example above, because of lexical scoping, we can see that the second function has access to the variables in the first function. And both functions have access to the global variable myName.
+
+Furthermore, the second function has access to the if block millennial variable because it is declared with var. If it was declared with let or const, it would not be accessible outside the if block. Being declared with var make it available in the whole function scope (first function).
+
+SCOPE CHAIN is the order in which functions are written lexically in the code. It is used to resolve variables that are not defined in the current scope. It is created during the creation phase. It consists of the variable environment of the current execution context and the variable environment of its parent execution context.
+
+// Example 2
+  const a = 'Thiago!';
+  first();
+
+  function first() {
+    const b = 'Hello!';
+    second();
+
+    function second() {
+      const c = 'Hi!';
+      third();
+    }
+  }
+
+  function third() {
+    const d = 'Hey!';
+    console.log(d + c + b + a);
+  }
+//
+
+The Call Stack of the code above goes like this:
+
+|----------------|
+|   third()      |
+|   second()     |
+|    first()     |
+| global scope   |
+|----------------|
+|   CALL STACK   |
+
+
+We get a reference error because the third function only has access to the global scope and its own scope.
+
+THE ORDER THAT FUNCTIONS ARE CALLED DOES NOT AFFECT THE SCOPE CHAIN. The scope chain is determined by the order that functions are written lexically in the code.
 
 */
