@@ -165,7 +165,9 @@ The scope chain in a certain scope is equal to adding together all the variable 
 
 The scope chain has nothing to do with the order in which functions were called. It does not affect the scope chain at all!
 */
+
 //----------------------------------------------------------------------------//
+/*
 // Scoping and the Scope Chain in Practice
 function calcAge(birthYear) {
   const age = 2024 - birthYear;
@@ -207,3 +209,164 @@ function calcAge(birthYear) {
 
 const firstName = "Thiago";
 calcAge(1996);
+
+*/
+//----------------------------------------------------------------------------//
+/* Hoisting and TDZ (temporary dead zone) in JavaScript
+
+Hoisting: Makes some types of variables accessible/usable in the code before they are actually declared. "Variables lifted to the top of their scope".
+
+Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable environment object.
+
+Hoisting works in a different way for function declarations, var variables, leet and const variables and function expressions.
+
+IN STRICT MODE they work like this before execution phase:
+
+function declarations:
+  Hoisted?
+    YES
+  Initial value:
+    Actual function
+  Scope:
+    Block
+
+var variables:
+  Hoisted?
+    YES
+  Initial value:
+    undefined
+  Scope:
+    Function
+
+let and const variables:
+  Hoisted?
+    NO
+  Initial value:
+    <uninitialized>, TDZ (temporal dead zone)
+  Scope:
+    Block
+
+function expressions and arrows functions created with var:
+  Hoisted?
+    NO
+  Initial value:
+    undefined
+  Scope:
+    Block
+
+function expressions and arrows functions created with let and const:
+  Hoisted?
+    NO
+  Initial value:
+    <uninitialized>, TDZ (temporal dead zone)
+  Scope:
+    Block
+
+
+variables in the TDZ (temporal dead zone) cannot be accessed before they are declared. They are in a TDZ from the start of the scope until the line where they are declared.
+
+// Example of TDZ
+
+const myName = "Thiago";
+
+if (myName === "Thiago") {
+  console.log(`Thiago is a ${job}`);
+  // ReferenceError: Cannot access 'job' before initialization
+
+  const age = 2024 - 1996;
+  console.log(age);
+
+  const job = "software engineer";
+
+  console.log(x);
+  // Reference Error: x is not defined
+}
+
+WHY TDZ???
+Makes it easier to avoid and catch erros: accessing variables before declaration is bad practice and should be avoided.
+
+Makes const variables actually work as they should (they should be only assigned when execution reaches declaration and should not be able to be reassigned).
+
+The TDZ ends when the variable is declared.
+*/
+
+//----------------------------------------------------------------------------//
+// Hoisting and TDZ (temporary dead zone) in Practice
+/*
+// console.log(me);
+// -> undefined
+// this is because variables declared with var are hoisted to the top of their scope. They are set to undefined in the creation phase. They are not in the TDZ.
+
+// console.log(job);
+// -> ReferenceError: Cannot access 'job' before initialization
+// this is because variables declared with let and const are not hoisted to the top of their scope. They are in the TDZ until declared.
+
+// console.log(year);
+// -> ReferenceError: Cannot access 'year' before initialization
+// same as job explanation.
+
+var me = "Thiago";
+let job = "software engineer";
+const year = 1996;
+
+// functions
+// console.log(addDecl(2, 3));
+// -> 5
+
+// console.log(addExpr(2, 3));
+// -> ReferenceError: Cannot access 'addExpr' before initialization
+
+// console.log(addArrow(2, 3));
+// -> ReferenceError: Cannot access 'addArrow' before initialization
+
+console.log(addExpr2);
+// -> undefined // because it is a variable declared with var. It is hoisted to the top of the scope and set to undefined in the creation phase.
+
+console.log(addExpr2(2, 3));
+// -> TypeError: addExpr2 is not a function // same explanation as above
+
+// the only function we can use before declaration is a function declaration.
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+var addExpr2 = function (a, b) {
+  return a + b;
+};
+
+
+// Example
+console.log(numProducts);
+// -> undefined
+
+if (!numProducts) deleteShoppingCart();
+// -> All products deleted! // because numProducts is undefined, and undefined is a falsy value. So !numProducts is true.
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log(`All products deleted!`);
+}
+
+var x = 1;
+let y = 2;
+const z = 3;
+
+console.log(x === window.x);
+// -> true
+
+console.log(y === window.y);
+// -> false
+
+console.log(z === window.z);
+// -> false
+
+// that happens because variables created with var are attached to the window object. Variables created with let and const are not attached to the window object.
+*/
