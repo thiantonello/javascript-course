@@ -369,4 +369,78 @@ console.log(z === window.z);
 // -> false
 
 // that happens because variables created with var are attached to the window object. Variables created with let and const are not attached to the window object.
+
 */
+//----------------------------------------------------------------------------//
+// The this Keyword
+/*
+// this keyword is a special variable that is created for every execution context (every function). It takes the value of (points to) the "owner" of the function in which the this keyword is used.
+
+this is NOT static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+
+Where this points to if inside a...:
+
+  Method -> this = <Object that is calling the method>
+
+  Simple function call -> this = undefined (in strict mode) or window object (not in strict mode)
+
+  Arrow function -> this = <this of surrounding function (lexical this)> // arrow functions do not get their own this keyword. They use the this keyword of the  function they are written in, the outer lexial scope (lexical this).
+
+  Event listener -> this = <DOM element that the handler is attached to>
+
+Important to note that this keyword will never point to a function itself, and it also does not point to the variable environment of the function.
+*/
+//----------------------------------------------------------------------------//
+// This keyword in practice
+/*
+console.log(this);
+// -> Window object
+
+const calcAge = function (birthYear) {
+  console.log(2024 - birthYear);
+  console.log(this);
+  // -> undefined // because it is a simple function call, not a method call. In strict mode, this would be undefined. In non-strict mode, this would be the window object (another reason we should not use non-strict mode, aka sloppy mode).
+};
+
+calcAge(1996);
+
+const calcAgeArrow = (birthYear) => {
+  console.log(2024 - birthYear);
+  console.log(this);
+  // -> Window object // because arrow functions do not get their own this keyword. They use the this keyword of the function they are written in, the outer lexial scope (lexical this).
+};
+
+calcAgeArrow(1996);
+
+*/
+const thiago = {
+  year: 1996,
+  calcAge: function () {
+    console.log(this);
+    // -> thiago object // because it is a method call. this points to the object that is calling the method.
+    console.log(2024 - this.year);
+  },
+};
+
+thiago.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = thiago.calcAge; // method borrowing
+// this is called method borrowing because we are borrowing a method from another object. We are not calling the method here, we are just copying it, that is why we do not use parentheses.
+
+matilda.calcAge();
+// -> matilda object // because it is a method call. this points to the object that is calling the method.
+
+// This keyword is not static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+
+const f = thiago.calcAge;
+// f is now just a regular function, not a method. It is a simple function call.
+
+f();
+// -> Cannot read properties of undefined (reading 'year')
+//      at calcAge (script.js:421:29)
+//      at script.js:442:1
+// undefined because it is a simple function call, not a method call. In strict mode, this would be undefined. In non-strict mode, this would be the window object (another reason we should not use non-strict mode, aka sloppy mode).
