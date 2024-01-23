@@ -412,7 +412,7 @@ const calcAgeArrow = (birthYear) => {
 
 calcAgeArrow(1996);
 
-*/
+
 const thiago = {
   year: 1996,
   calcAge: function () {
@@ -444,3 +444,147 @@ f();
 //      at calcAge (script.js:421:29)
 //      at script.js:442:1
 // undefined because it is a simple function call, not a method call. In strict mode, this would be undefined. In non-strict mode, this would be the window object (another reason we should not use non-strict mode, aka sloppy mode).
+*/
+
+//----------------------------------------------------------------------------//
+// Regular Functions vs. Arrow Functions
+/*
+const thiago = {
+  firstName: "Thiago",
+  year: 1996,
+
+  calcAge: function () {
+    console.log(this);
+    console.log(2024 - this.year);
+  },
+
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+
+thiago.greet();
+// -> Window object // because arrow functions do not get their own this keyword. They use the this keyword of the function they are written in, the outer lexial scope (lexical this).
+// -> Hey undefined // In this case, the outer scope is the global scope, so this.firstName is undefined. Thiago object doest not create its own scope.
+*/
+
+//----------------
+// var firstName = "Matilda"; // lets suppose we have this variable in the global scope.
+
+// thiago.greet();
+// -> Hey Matilda // because arrow functions do not get their own this keyword. They use the this keyword of the function they are written in, the outer lexial scope (lexical this). In this case, the outer scope is the global scope, so this.firstName in the global scope is Matilda.
+//----------------
+
+// NEVER EVER USE ARROW FUNCTIONS AS METHODS!!!!!
+// NEVER EVER USE ARROW FUNCTIONS AS METHODS!!!!!
+// NEVER EVER USE ARROW FUNCTIONS AS METHODS!!!!!
+// NEVER EVER USE ARROW FUNCTIONS AS METHODS!!!!!
+// NEVER EVER USE ARROW FUNCTIONS AS METHODS!!!!!
+// NEVER EVER USE ARROW FUNCTIONS AS METHODS!!!!!
+
+/*
+const thiago = {
+  firstName: "Thiago",
+  year: 1996,
+
+  calcAge: function () {
+    console.log(this);
+    console.log(2024 - this.year);
+
+    const isMillenial = function () {
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+
+  greet: function () {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+
+thiago.greet();
+// -> { firstName: 'Thiago', year: 1996, calcAge: 𝑓, greet: 𝑓}
+// -> Hey Thiago // because it is a method call. this points to the object that is calling the method.
+
+thiago.calcAge();
+// -> { firstName: 'Thiago', year: 1996, calcAge: 𝑓, greet: 𝑓}
+// -> 28
+// -> Uncaught TypeError: Cannot read properties of undefined (reading 'year')
+//      at isMillenial
+//      at Object.calcAge
+//      at script.js
+// That happens because isMillenial is a regular function, not a method. So it is a simple function call. this points to the global object, which is undefined in strict mode. So this.year is undefined. It is like the function is outside of the method calcAge.
+
+// It is a clear rule that a regular function call has the this keyword set to undefined. It does not matter if the function is inside a method. It is still a regular function call.
+
+There are 2 solutions to this problem:
+
+// Solution 1 - create a variable (self or that) and store this in it
+
+The first solution is to use an extra variable that we usually call self. It is a common practice to use self or that to store the this keyword. Then we can use self or that inside the regular function. It is a workaround, not a solution.
+
+  calcAge: function () {
+    console.log(this);
+    console.log(2024 - this.year);
+
+    const self = this; // now self is the thiago object
+    const isMillenial = function () {
+      console.log(self.year >= 1981 && self.year <= 1996);
+    };
+    isMillenial();
+  },
+
+now when we call
+thiago.calcAge();
+// -> { firstName: 'Thiago', year: 1996, calcAge: 𝑓, greet: 𝑓}
+// -> 28
+// -> true
+
+// This is a pre ES6 solution. It is a workaround, not a solution.
+
+
+// Solution 2 - use an arrow function
+
+  calcAge: function () {
+    console.log(this);
+    console.log(2024 - this.year);
+
+    const isMillenial = () => {
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+
+thiago.calcAge();
+// -> { firstName: 'Thiago', year: 1996, calcAge: 𝑓, greet: 𝑓}
+// -> 28
+// -> true
+
+// Arrow functions do not get their own this keyword. They use the this keyword of the function they are written in, the outer lexial scope (lexical this). In this case, the outer scope is the calcAge method, so this points to the thiago object.
+*/
+
+/*
+// Arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5);
+// -> Arguments(2) [2, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+// we can see the two arguments that we passed in
+// -> 7
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+
+addArrow(2, 5);
+// -> ReferenceError: arguments is not defined
+// arrow functions do not get their own arguments keyword.
+
+// arguments keyword is a special variable that exists in regular functions but not in arrow functions.
+*/
