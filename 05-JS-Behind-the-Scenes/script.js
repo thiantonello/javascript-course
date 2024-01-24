@@ -588,3 +588,56 @@ addArrow(2, 5);
 
 // arguments keyword is a special variable that exists in regular functions but not in arrow functions.
 */
+
+//----------------------------------------------------------------------------//
+// Primitives vs. Objects (Primitive vs. Reference Types)
+/*
+
+let age = 27;
+let oldAge = age;
+age = 28;
+
+console.log(age);
+// -> 28
+console.log(oldAge);
+// -> 27
+
+// age and oldAge are two different variables. They are independent of each other. They are stored in different places in the memory.
+
+const me = {
+  name: "Thiago",
+  age: 27,
+};
+
+const friend = me;
+friend.age = 30;
+
+console.log("Friend:", friend);
+// -> Friend: { name: 'Thiago', age: 30 }
+
+console.log("Me:", me);
+// -> Me: { name: 'Thiago', age: 30 }
+
+// friend and me are two different variables, but they are pointing to the same object in the memory. They are not independent of each other. They are stored in the same place in the memory.
+
+// Primitive types:
+// Number, String, Boolean, Undefined, Null, Symbol, BigInt
+
+// Reference types:
+// Object, Array, Function, etc.
+
+// Primitive types are stored in the call stack.
+// Reference types are stored in the heap.
+
+// Primitive types are copied by value. Reference types are copied by reference.
+
+// When we copy a primitive value, we create a new value in the memory. When we copy a reference value, we do not create a new value in the memory. We just copy the reference to the object in the memory.
+
+// When we create a variable of a primitive type it points to an address in the memory that has a certain value.
+
+// When we create an object, like the "me" in the example above, the identifier "me" doesn't point directly to the Heap. It points to an memory address at the Call Stack that references a memory address at the Heap that a value (of the object). So when we create a variable of a reference type it points to an address in the memory that has a reference to the object in the heap.
+
+// It works this way because objects might be to large to be stored in the call stack. So they are stored in the heap. And the call stack stores the reference to the object in the heap.
+
+*/
+//----------------------------------------------------------------------------//
